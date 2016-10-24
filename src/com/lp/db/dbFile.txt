@@ -1,0 +1,13 @@
+{
+    "jdbc": {
+        "username": "root",
+        "password": "root",
+        "url": "localhost:3306",
+        "dbname": "lqlp-yydb"
+    },
+    "fileConfig": {
+        "ibatisDaoPackage": "com.lp.dao",
+        "ibatisEntityPackage": "com.lp.dao.entity",
+        "fileSavePath": "C:\\lp-create-ibatis-file"
+    }
+}
