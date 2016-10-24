@@ -132,7 +132,7 @@ public class MainWindow extends JFrame {
 		deletePrefix.setBounds(12, 310, 150, 15);
 		contentPane.add(deletePrefix);
 		
-		isCreateMoveSql = new JCheckBox("勾选生成ibatis动态sql");
+		isCreateMoveSql = new JCheckBox("生成ibatis动态sql");
 		isCreateMoveSql.setBounds(12, 340, 200, 20);
 		isCreateMoveSql.setSelected(DbFile.singleton.getFileConfig().getIsCreateMoveSql());
 		contentPane.add(isCreateMoveSql);
