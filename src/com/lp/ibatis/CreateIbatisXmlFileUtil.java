@@ -67,7 +67,7 @@ public class CreateIbatisXmlFileUtil {
 		//
 		rootMap.put("isCreateMoveSql", DbFile.singleton.getFileConfig().getIsCreateMoveSql());
 		
-		FileUtil.writeIbatisFile(template, rootMap, UtilLp.getIbatitsDaoClassName(tableName)+"Mapper.xml", ibatisEntityName);
+		FileUtil.writeIbatisFile(template, rootMap, UtilLp.getIbatitsDaoClassName(tableName)+"Mapper.xml", "IbatisXml");//ibatisEntityName
 	}
 	
 }

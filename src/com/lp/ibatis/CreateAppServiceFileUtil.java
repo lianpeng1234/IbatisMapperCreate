@@ -29,7 +29,6 @@ public class CreateAppServiceFileUtil {
 		configuration.setTemplateLoader(new ClassTemplateLoader(TemplatePath.class));
 		Template template = configuration.getTemplate("ibatisService.ftl", Locale.CHINA, "UTF-8");
 		//
-		//
 		Map<String, Object> rootMap = new HashMap<String, Object>();
 		rootMap.put("packagePath", DbFile.singleton.getFileConfig().getServicePackage());//
 		rootMap.put("importPackage", DbFile.singleton.getFileConfig().getIbatisEntityPackage());//
@@ -45,7 +44,7 @@ public class CreateAppServiceFileUtil {
 		//
 		rootMap.put("isCreateMoveSql", DbFile.singleton.getFileConfig().getIsCreateMoveSql());
 		
-		FileUtil.writeIbatisFile(template, rootMap, interfaceName+".java", entityName);
+		FileUtil.writeIbatisFile(template, rootMap, interfaceName+".java", "Service");//entityName
 	}
 	
 }

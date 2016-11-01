@@ -57,7 +57,7 @@ public class CreateAppServiceImplFileUtil {
 		//
 		rootMap.put("isCreateMoveSql", DbFile.singleton.getFileConfig().getIsCreateMoveSql());
 		
-		FileUtil.writeIbatisFile(template, rootMap, className+".java", entityName);
+		FileUtil.writeIbatisFile(template, rootMap, className+".java", "ServiceImpl");//entityName
 	}
 	
 }

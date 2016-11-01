@@ -60,7 +60,7 @@ public class CreateIbatisFile {
 			openButton.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent arg0) {
 	        		try {
-	        			String openPath = DbFile.singleton.getFileConfig().getFileSavePath() + UtilLp.getIbatisEntityName(tableName);
+	        			String openPath = DbFile.singleton.getFileConfig().getFileSavePath();// + UtilLp.getIbatisEntityName(tableName)
 						Runtime.getRuntime().exec("explorer.exe " + openPath);
 					} catch (IOException e) {
 						e.printStackTrace();

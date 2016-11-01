@@ -119,7 +119,7 @@ public class CreateIbatisEntityFileUtil {
 		//
 		rootMap.put("isCreateMoveSql", DbFile.singleton.getFileConfig().getIsCreateMoveSql());
 		
-		FileUtil.writeIbatisFile(template, rootMap, className+".java", className);
+		FileUtil.writeIbatisFile(template, rootMap, className+".java", "IbatisEntity");//className
 		
 	}
 	

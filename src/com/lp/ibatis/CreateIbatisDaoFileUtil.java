@@ -47,7 +47,7 @@ public class CreateIbatisDaoFileUtil {
 		//
 		rootMap.put("isCreateMoveSql", DbFile.singleton.getFileConfig().getIsCreateMoveSql());
 		
-		FileUtil.writeIbatisFile(template, rootMap, interfaceName+".java", entityName);
+		FileUtil.writeIbatisFile(template, rootMap, interfaceName+".java", "IbatisDao");//entityName
 	}
 	
 }
