@@ -8,11 +8,15 @@ public class FileConfigJsonEntity {
 	
 	private String fileSavePath;
 	
+	private String uploadFilePath;
+	
 	private String ibatisFileCharset;
 	
 	private String servicePackage;
 	
 	private String serviceImplPackage;
+	
+	private String controllerPackage;
 	
 	private String deleteStr;
 	
@@ -81,6 +85,22 @@ public class FileConfigJsonEntity {
 
 	public void setIsCreateMoveSql(boolean isCreateMoveSql) {
 		this.isCreateMoveSql = isCreateMoveSql;
+	}
+
+	public String getControllerPackage() {
+		return controllerPackage;
+	}
+
+	public void setControllerPackage(String controllerPackage) {
+		this.controllerPackage = controllerPackage;
+	}
+
+	public String getUploadFilePath() {
+		return uploadFilePath;
+	}
+
+	public void setUploadFilePath(String uploadFilePath) {
+		this.uploadFilePath = uploadFilePath;
 	}
 	
 	

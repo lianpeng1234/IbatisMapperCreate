@@ -53,7 +53,7 @@ public class CreateIbatisXmlFileUtil {
 				//
 				String primaryKeyIbatisJdbcType = UtilLp.getFieldType(dataType).getIbatisJdbcType();
 				rootMap.put("primaryKeyColumn", columnName);
-				rootMap.put("primaryKeyProperty", UtilLp.processColumnName(columnName));
+				rootMap.put("primaryKeyProperty", UtilLp.columnNameToHumpStr(columnName));
 				rootMap.put("primaryKeyIbatisJdbcType", primaryKeyIbatisJdbcType);
 				break;
 			}

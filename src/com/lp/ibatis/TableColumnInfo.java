@@ -2,7 +2,7 @@ package com.lp.ibatis;
 
 public class TableColumnInfo implements Cloneable{
 	/**
-	 * 字段名称
+	 * 字段名称 ,例如 DICT_TYPE
 	 */
 	private String columnName;
 	/**
@@ -10,7 +10,7 @@ public class TableColumnInfo implements Cloneable{
 	 */
 	private String columnComment;
 	/**
-	 * 数据类型
+	 * 数据类型 例如 varchar
 	 */
 	private String dataType;
 	/**

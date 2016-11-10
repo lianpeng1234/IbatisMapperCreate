@@ -49,7 +49,7 @@ public class CreateIbatisEntityFileUtil {
 			//属性
 			Map<String,String> entityFieldMap = new HashMap<String, String>();
 			entityFieldMap.put("fieldExplain", columnCom);//实体类字段说明
-			String fieldName = UtilLp.processColumnName(columnName);//实体类字段 名称
+			String fieldName = UtilLp.columnNameToHumpStr(columnName);//实体类字段 名称
 			entityFieldMap.put("fieldName", fieldName);
 			String fieldType = UtilLp.getFieldType(dataType).getJavaDataType();//字段数据类型
 			entityFieldMap.put("fieldType", fieldType);

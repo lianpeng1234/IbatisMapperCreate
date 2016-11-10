@@ -42,6 +42,10 @@ public class CreateIbatisFile {
 				CreateAppServiceFileUtil.createAppServiceFile(tableInfo, tableName);
 				//创建应用 service 接口实现
 				CreateAppServiceImplFileUtil.createAppServiceImplFile(tableInfo, tableName);
+				//创建应用 controller java文件
+				CreateAppControlerFileUtil.createAppControllerFile(tableInfo, tableName);
+				//创建页面
+				CreateViewFileUtil.createViewFile(tableInfo, tableName);
 			} catch (SQLException e) {
 				createStatus = false;
 				e.printStackTrace();
@@ -137,7 +141,7 @@ public class CreateIbatisFile {
 			for(int j=0; j<tableInfoCopy2.size();) {
 				if(columnInfo.getIndexName().equals( tableInfoCopy2.get(j).getIndexName() )) {//
 					Map<String,Object> paramMap = new HashMap<String, Object>();
-					paramMap.put("paramName", UtilLp.processColumnName(tableInfoCopy2.get(j).getColumnName()));//参数名称
+					paramMap.put("paramName", UtilLp.columnNameToHumpStr(tableInfoCopy2.get(j).getColumnName()));//参数名称
 					paramMap.put("paramType", UtilLp.getFieldType(tableInfoCopy2.get(j).getDataType()).getJavaDataType());//参数数据类型
 					paramMap.put("paramExplain", tableInfoCopy2.get(j).getColumnComment());//参数说明
 					paramMap.put("COLUMN", tableInfoCopy2.get(j).getColumnName());//参数对应的数据库中的 字段名称
@@ -151,7 +155,7 @@ public class CreateIbatisFile {
 					//
 					indexColumnCount ++;
 					//方法名称后缀
-					methodNameSuffix.append(UtilLp.processString(tableInfoCopy2.get(j).getColumnName()));
+					methodNameSuffix.append(UtilLp.tableNameToHumpStr(tableInfoCopy2.get(j).getColumnName()));
 					//删除元素
 					tableInfoCopy2.remove(j);
 				} else {
@@ -241,7 +245,7 @@ public class CreateIbatisFile {
 			}
 			//
 			xmlMap.put("COLUMN", columnName);//数据库字段名
-			xmlMap.put("PROPERTY", UtilLp.processColumnName(columnName));//属性名
+			xmlMap.put("PROPERTY", UtilLp.columnNameToHumpStr(columnName));//属性名
 			xmlMap.put("JDBCTYPE", UtilLp.getFieldType(dataType).getIbatisJdbcType());
 			xmlMap.put("IS_PRIMARYKEY", isPrimarykey);//是否是 唯一索引
 			

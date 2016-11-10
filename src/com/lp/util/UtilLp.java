@@ -60,7 +60,7 @@ public class UtilLp {
 	 * @return
 	 */
 	public static String getIbatitsDaoClassName(String tableName) {
-		String entityName = processString(tableName);
+		String entityName = tableNameToHumpStr(tableName);
 		String interfaceName = entityName+"Dao";
 		return interfaceName;
 	}
@@ -71,7 +71,7 @@ public class UtilLp {
 	 * @return
 	 */
 	public static String getAppServiceClassName(String tableName) {
-		String entityName = processString(tableName);
+		String entityName = tableNameToHumpStr(tableName);
 		String interfaceName = entityName+"Service";
 		return interfaceName;
 	}
@@ -82,8 +82,19 @@ public class UtilLp {
 	 * @return
 	 */
 	public static String getAppServiceImplClassName(String tableName) {
-		String entityName = processString(tableName);
+		String entityName = tableNameToHumpStr(tableName);
 		String interfaceName = entityName+"ServiceImpl";
+		return interfaceName;
+	}
+	
+	/**
+	 * 获取service层实现类名称
+	 * @param tableName
+	 * @return
+	 */
+	public static String getAppControllerClassName(String tableName) {
+		String entityName = tableNameToHumpStr(tableName);
+		String interfaceName = entityName+"Controller";
 		return interfaceName;
 	}
 	
@@ -93,20 +104,20 @@ public class UtilLp {
 	 * @return
 	 */
 	public static String getIbatisEntityName(String tableName) {
-		String entityName = processString(tableName);
+		String entityName = tableNameToHumpStr(tableName);
 //		String interfaceName = entityName+"Entity";
 		return entityName;
 	}
 	
 	/**
-	 * 类名 格式化为 驼峰标识，首字母大写,如果有数字，放弃包含数字的字符串
+	 * 数据库表名称 格式化为 驼峰标识，首字母大写，如果有数字，放弃包含数字的字符串
 	 * @param className
 	 * @return
 	 */
-	public static String processString(String str) {
+	public static String tableNameToHumpStr(String tableName) {
 		StringBuilder s = new StringBuilder();
-		if(str.indexOf("_") > -1) {//包含下划线
-			String[] sArray = str.toLowerCase().split("_");
+		if(tableName.indexOf("_") > -1) {//包含下划线
+			String[] sArray = tableName.toLowerCase().split("_");
 			for(int i=0; i<sArray.length; i++) {
 				if(sArray[i].equals(DbFile.singleton.getFileConfig().getDeleteStr())) {
 					continue;
@@ -117,47 +128,29 @@ public class UtilLp {
 			}
 			return s.toString();
 		} else {
-			return firstToUpperCase(str.toLowerCase());
-		}
-	}
-	
-	/**
-	 * 格式化为 驼峰标识，首字母大写
-	 * @param str
-	 * @return
-	 */
-	public static String processStringFull(String str) {
-		StringBuilder s = new StringBuilder();
-		if(str.indexOf("_") > -1) {//包含下划线
-			String[] sArray = str.toLowerCase().split("_");
-			for(int i=0; i<sArray.length; i++) {
-				s.append(firstToUpperCase(sArray[i]));
-			}
-			return s.toString();
-		} else {
-			return firstToUpperCase(str.toLowerCase());
+			return firstToUpperCase(tableName.toLowerCase());
 		}
 	}
 	
 	
 	public static String getIsOrderByColumn(String str) {
-		return "isOrderBy" + processStringFull(str);
+		return "isOrderBy" + columnNameToHumpStr(str);
 	}
 	
 	public static String getIsOrderByColumnDesc(String str) {
-		return "isOrderBy" + processStringFull(str) + "Desc";
+		return "isOrderBy" + columnNameToHumpStr(str) + "Desc";
 	}
 	
 	public static String getIsGroupByColumn(String str) {
-		return "isGroupBy" + processStringFull(str);
+		return "isGroupBy" + columnNameToHumpStr(str);
 	}
 	
 	/**
-	 * 格式化为 驼峰标识，首字母小写
+	 * 数据库表 字段名称  格式化为 驼峰标识，首字母小写
 	 * @param columnName
 	 * @return
 	 */
-	public static String processColumnName(String str) {
+	public static String columnNameToHumpStr(String str) {
 		StringBuilder s = new StringBuilder();
 		if(str.indexOf("_") > -1) {//包含下划线
 			String[] sArray = str.toLowerCase().split("_");
