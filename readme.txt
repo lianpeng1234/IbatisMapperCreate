@@ -1,4 +1,5 @@
 一：如何运行
+运行jar包
 1:运行环境
 安装jdk1.6或者更高版本,window操作系统，需要对 C盘 有操作权限
 
@@ -10,6 +11,9 @@ mysql-connector-java-5.1.29.jar
 freemarker-2.3.18.jar
 fastjson-1.1.41.jar
 commons-lang3-3.3.2.jar
+
+运行源码
+com.lp.window.MainWindow 类 右键 Run As 就可以了
 
 二：如何创建属于自己的 Controller 和 页面
 1：创建属于自己的 Controller
