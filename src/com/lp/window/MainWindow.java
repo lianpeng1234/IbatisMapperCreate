@@ -286,7 +286,7 @@ public class MainWindow extends JFrame {
 		DbFile.singleton.getFileConfig().setIbatisDaoPackage(ibatisDaoPackageField.getText());//
 		DbFile.singleton.getFileConfig().setIbatisEntityPackage(ibatisEntityPackageField.getText());//
 		DbFile.singleton.getFileConfig().setFileSavePath(path(fileSavePathField.getText().replace("/", "\\"),true));//
-		DbFile.singleton.getFileConfig().setUploadFilePath(path(uploadPathField.getText().replace("/", "\\"),false));
+//		DbFile.singleton.getFileConfig().setUploadFilePath(path(uploadPathField.getText().replace("/", "\\"),false));
 		DbFile.singleton.getFileConfig().setIbatisFileCharset(dbtype.getSelectedItem().toString());
 		DbFile.singleton.getFileConfig().setServicePackage(appServicePackageField.getText());
 		DbFile.singleton.getFileConfig().setServiceImplPackage(appServiceImplPackageField.getText());
