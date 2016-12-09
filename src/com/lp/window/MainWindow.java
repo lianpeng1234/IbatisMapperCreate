@@ -276,7 +276,7 @@ public class MainWindow extends JFrame {
 				showTableWindow();
 			}
 		});
-		btnNewButton.setBounds(12, 720, 93, 23);
+		btnNewButton.setBounds(12, 600, 93, 23);
 		contentPane.add(btnNewButton);
 		
 	}
