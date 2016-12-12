@@ -132,6 +132,9 @@ public class UtilLp {
 		}
 	}
 	
+	public static String getIsLikeColumn(String str) {
+		return "isLike" + firstToUpperCase(columnNameToHumpStr(str));
+	}
 	
 	public static String getIsOrderByColumn(String str) {
 		return "isOrderBy" + firstToUpperCase(columnNameToHumpStr(str));

@@ -249,6 +249,8 @@ public class CreateIbatisFile {
 			xmlMap.put("JDBCTYPE", UtilLp.getFieldType(dataType).getIbatisJdbcType());
 			xmlMap.put("IS_PRIMARYKEY", isPrimarykey);//是否是 唯一索引
 			
+			xmlMap.put("isLikeColumn", UtilLp.getIsLikeColumn(columnName));//
+			
 			xmlMap.put("isOrderByColumn", UtilLp.getIsOrderByColumn(columnName));//
 			xmlMap.put("isOrderByColumnDesc", UtilLp.getIsOrderByColumn(columnName) + "Desc");//true 倒序, false 正序
 			

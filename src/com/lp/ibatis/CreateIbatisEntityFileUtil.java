@@ -55,6 +55,12 @@ public class CreateIbatisEntityFileUtil {
 			entityFieldMap.put("fieldType", fieldType);
 			entityFieldList.add(entityFieldMap);//
 			if(DbFile.singleton.getFileConfig().getIsCreateMoveSql()) {
+				//like
+				entityFieldMap = new HashMap<String, String>();
+				entityFieldMap.put("fieldName", UtilLp.getIsLikeColumn(columnName));
+				entityFieldMap.put("fieldType", "boolean");
+				entityFieldMap.put("fieldExplain", "true 按照字段 "+fieldName+ " 模糊查询" + ";false 精确查询 (默认值 false)");//实体类字段说明
+				entityFieldList.add(entityFieldMap);//
 				//order by
 				entityFieldMap = new HashMap<String, String>();
 				entityFieldMap.put("fieldName", UtilLp.getIsOrderByColumn(columnName));
@@ -83,6 +89,15 @@ public class CreateIbatisEntityFileUtil {
 			entityMethodMap.put("paramName", fieldName);//set方法 参数名
 			entityMethodList.add(entityMethodMap);//
 			if(DbFile.singleton.getFileConfig().getIsCreateMoveSql()) {
+				//like
+				entityMethodMap = new HashMap<String, String>();
+				entityMethodMap.put("retutnType", "boolean");//get 方法 返回类型
+				entityMethodMap.put("methodName", UtilLp.firstToUpperCase(UtilLp.getIsLikeColumn(columnName)));//get 和 set 方法 方法名
+				entityMethodMap.put("fieldName", UtilLp.getIsLikeColumn(columnName));//类属性名称
+				entityMethodMap.put("paramType", "boolean");//set方法参数类型
+				entityMethodMap.put("paramName", UtilLp.getIsOrderByColumn(columnName));//set方法 参数名
+				entityMethodMap.put("methodExplain", "true 按照字段 "+fieldName+ " 模糊查询" + ";false 精确查询 (默认值 false)");//方法说明
+				entityMethodList.add(entityMethodMap);//
 				//order by
 				entityMethodMap = new HashMap<String, String>();
 				entityMethodMap.put("retutnType", "boolean");//get 方法 返回类型

@@ -26,7 +26,10 @@
     <where>
     <trim suffixOverrides=" and " >
     <#list listMap?if_exists as column>
-    	<if test="${column.PROPERTY} != null" >
+    	<if test="${column.isLikeColumn} == 1 and ${column.PROPERTY} != null" >
+    	${column.COLUMN} LIKE CONCAT('%',${jingHao}{${column.PROPERTY},jdbcType=${column.JDBCTYPE}},'%')<#if column_has_next> and </#if>
+    	</if>
+    	<if test="${column.isLikeColumn} == 0 and ${column.PROPERTY} != null" >
         ${column.COLUMN} = ${jingHao}{${column.PROPERTY},jdbcType=${column.JDBCTYPE}}<#if column_has_next> and </#if>
       	</if>
     </#list>
@@ -62,7 +65,10 @@
     <where>
     <trim suffixOverrides=" and " >
     <#list listMap?if_exists as column>
-    	<if test="${column.PROPERTY} != null" >
+      	<if test="${column.isLikeColumn} == 1 and ${column.PROPERTY} != null" >
+    	${column.COLUMN} LIKE CONCAT('%',${jingHao}{${column.PROPERTY},jdbcType=${column.JDBCTYPE}},'%')<#if column_has_next> and </#if>
+    	</if>
+    	<if test="${column.isLikeColumn} == 0 and ${column.PROPERTY} != null" >
         ${column.COLUMN} = ${jingHao}{${column.PROPERTY},jdbcType=${column.JDBCTYPE}}<#if column_has_next> and </#if>
       	</if>
     </#list>
