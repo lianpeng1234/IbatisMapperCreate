@@ -134,15 +134,15 @@ public class UtilLp {
 	
 	
 	public static String getIsOrderByColumn(String str) {
-		return "isOrderBy" + columnNameToHumpStr(str);
+		return "isOrderBy" + firstToUpperCase(columnNameToHumpStr(str));
 	}
 	
 	public static String getIsOrderByColumnDesc(String str) {
-		return "isOrderBy" + columnNameToHumpStr(str) + "Desc";
+		return "isOrderBy" + firstToUpperCase(columnNameToHumpStr(str)) + "Desc";
 	}
 	
 	public static String getIsGroupByColumn(String str) {
-		return "isGroupBy" + columnNameToHumpStr(str);
+		return "isGroupBy" + firstToUpperCase(columnNameToHumpStr(str));
 	}
 	
 	/**
