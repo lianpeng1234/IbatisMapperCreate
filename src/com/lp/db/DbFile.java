@@ -1,13 +1,13 @@
 package com.lp.db;
 
 public class DbFile {
-	
+
 	public static final String dbFilePath = "C:\\lp-ibatisMapperCreate\\dbFile.txt";
 
 	public static DbFile singleton;
-	
+
 	private JdbcJsonEntity jdbc;
-	
+
 	private FileConfigJsonEntity fileConfig;
 
 	public void setJdbc(JdbcJsonEntity jdbc) {
@@ -25,5 +25,7 @@ public class DbFile {
 	public FileConfigJsonEntity getFileConfig() {
 		return fileConfig;
 	}
-	
+
+	public void aa(){};
+
 }
